@@ -1,0 +1,15 @@
+Read a text file as RDD
+Split into words
+map words to (word,1) and reduceBy(_+_) ---> X
+Now Apply zipwithIndex
+for loop:
+	for each targetword
+	Select +9,-9 words
+	map this set to (word,1) and ReduceBy(_+_)
+	Now map that RDD to (TargetWord,word,Count) ---> Y
+	Apply JOIN on X,Y with TargetWord as KEY ---> Z
+	Map Z to (word,TargetWord,Frequency)
+After Loop
+	ReduceBy(_+_) on Frequency
+
+Now Repeat the above for 9 other files and Apply UNION
